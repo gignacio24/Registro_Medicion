@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Registro_Medicion</string>
+    <string name="title_list">Registros de Medidores</string>
+    <string name="title_form">Nuevo Registro</string>
+
+    <string name="meter_hint">Número de medidor</string>
+    <string name="date_hint">Fecha (AAAA-MM-DD)</string>
+    <string name="meter_type">Tipo de medidor:</string>
+    <string name="register_button">Registrar Medición</string>
+    <string name="invalid_date_format">Formato de fecha inválido (use AAAA-MM-DD)</string>
+
+    <string name="water">Agua</string>
+    <string name="electricity">Luz</string>
+    <string name="gas">Gas</string>
+
+    <string name="measurement">Medición: %d</string>
+    <string name="date">Fecha: %s</string>
+    <string name="add_button">Agregar nuevo</string>
+    <string name="empty_list">No hay registros aún</string>
+
+    <string name="error_required">Campo requerido</string>
+    <string name="error_invalid_number">Número inválido</string>
+
+    <string name="icon_water">Ícono de agua</string>
+    <string name="icon_electricity">Ícono de electricidad</string>
+    <string name="icon_gas">Ícono de gas</string>
+    <string name="add_icon">Agregar nuevo registro</string>
+</resources>

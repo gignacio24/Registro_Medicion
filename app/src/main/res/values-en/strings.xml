@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MeterGiovanni</string>
+    <string name="title_list">Meter Readings</string>
+    <string name="title_form">New Reading</string>
+
+    <string name="meter_hint">Meter number</string>
+    <string name="date_hint">Date (YYYY-MM-DD)</string>
+    <string name="meter_type">Meter type:</string>
+    <string name="register_button">Register Reading</string>
+    <string name="invalid_date_format">Invalid date format (use YYYY-MM-DD)</string>
+
+    <string name="water">Water</string>
+    <string name="electricity">Electricity</string>
+    <string name="gas">Gas</string>
+
+    <string name="measurement">Reading: %d</string>
+    <string name="date">Date: %s</string>
+    <string name="add_button">Add new</string>
+    <string name="empty_list">No records yet</string>
+
+    <string name="error_required">Required field</string>
+    <string name="error_invalid_number">Invalid number</string>
+
+    <string name="icon_water">Water icon</string>
+    <string name="icon_electricity">Electricity icon</string>
+    <string name="icon_gas">Gas icon</string>
+    <string name="add_icon">Add new record</string>
+</resources>
