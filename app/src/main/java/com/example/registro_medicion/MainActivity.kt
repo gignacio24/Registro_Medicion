@@ -52,8 +52,10 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.example.registro_medicion.entities.Registro
+import com.example.registro_medicion.ui.IListaRegistros
 import com.example.registro_medicion.ui.ListaRegistrosViewModel
 import com.example.registro_medicion.ui.theme.Registro_MedicionTheme
+import com.example.registro_medicion.ui.FakeListaRegistrosViewModel
 import java.time.LocalDate
 
 
@@ -180,12 +182,11 @@ fun RegistroItem(registro: Registro) {
 
 @Composable
 fun PantallaFormRegistro(
-    vmListaRegistros: ListaRegistrosViewModel,
-    onRegistroExitoso: () -> Unit
+    vmListaRegistros: IListaRegistros, // 🔥 ahora usamos la interfaz
+    onRegistroExitoso:()->Unit
 ) {
     var medidor by rememberSaveable { mutableIntStateOf(0) }
     var fecha by rememberSaveable { mutableStateOf("") }
-    //var tipo by rememberSaveable { mutableStateOf(stringResource(R.string.water)) }
     var tipo by rememberSaveable { mutableStateOf("Agua") }
     var errorFecha by rememberSaveable { mutableStateOf(false) }
 
@@ -340,12 +341,13 @@ fun PreviewPantallaListaRegistros() {
     }
 }
 
+@Suppress("ViewModelConstructorInComposable")
 @Preview(showSystemUi = true)
 @Composable
 fun PreviewPantallaFormRegistro() {
     MaterialTheme {
         PantallaFormRegistro(
-            vmListaRegistros = viewModel(factory = ListaRegistrosViewModel.Factory),
+            vmListaRegistros = FakeListaRegistrosViewModel(), // 👈 Fake para previews
             onRegistroExitoso = {}
             )
     }

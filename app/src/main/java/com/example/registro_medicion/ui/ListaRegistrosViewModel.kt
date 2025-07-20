@@ -16,37 +16,35 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class ListaRegistrosViewModel( private val registroDao: RegistroDao): ViewModel()  {
+class ListaRegistrosViewModel( private val registroDao: RegistroDao): ViewModel(), IListaRegistros  {
 
-    var registros by mutableStateOf(listOf<Registro>())
+    override var registros by mutableStateOf(listOf<Registro>())
         private set
 
     init {
         obtenerRegistros()
     }
 
-    // Corrutina para insertar registros
-    fun insertarRegistro(registro: Registro) {
+    // Implementación de la interfaz
+    override fun insertarRegistro(registro: Registro) {
         viewModelScope.launch(Dispatchers.IO) {
             registroDao.insertar(registro)
-            obtenerRegistros()  // Actualiza la lista después de insertar
+            obtenerRegistros() // Actualiza la lista después de insertar
         }
     }
 
-    // Corrutina para obtener registros
-    private fun obtenerRegistros()
-    //: List<Registro>
-    {
+    // Método interno para obtener los registros desde la base de datos
+    private fun obtenerRegistros() {
         viewModelScope.launch(Dispatchers.IO) {
-            registros = registroDao.obtenerTodos()
+            val lista = registroDao.obtenerTodos()
+            // Actualiza el estado en el hilo principal
+            registros = lista
         }
-        //return registros
     }
 
     companion object {
         val Factory: ViewModelProvider.Factory = viewModelFactory {
             initializer {
-                //val savedStateHandle = createSavedStateHandle()
                 val aplicacion = (this[APPLICATION_KEY] as Aplicacion)
                 ListaRegistrosViewModel(aplicacion.registroDao)
             }

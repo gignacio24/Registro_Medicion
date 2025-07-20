@@ -77,7 +77,6 @@ dependencies {
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
     ksp(libs.room.annotation.processor)
-    //annotationProcessor(libs.room.annotation.processor)
 
     // Íconos de Material Design
     implementation(libs.androidx.material.icons.core)
